@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+
+  # resources :reviews, only: [:new, :create]
+  #
+  resources :reviews, only: :destroy
+
   resources :restaurants do
+    resources :reviews, only: [:create]
+
     collection do
       get :top
     end
